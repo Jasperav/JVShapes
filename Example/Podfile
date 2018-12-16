@@ -1,0 +1,6 @@
+use_frameworks!
+target 'JVShapes_Tests' do
+  pod 'JVShapes', :path => '../'
+  
+  
+end

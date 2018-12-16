@@ -1,0 +1,16 @@
+PODS:
+  - JVShapes (0.1.0)
+
+DEPENDENCIES:
+  - JVShapes (from `../`)
+
+EXTERNAL SOURCES:
+  JVShapes:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JVShapes: cc12731d4bf48983199cf5ff310ab5a7e7793bda
+
+PODFILE CHECKSUM: 18037eaa4a48155aecf7b829645a6cf04798816e
+
+COCOAPODS: 1.6.0.beta.1
