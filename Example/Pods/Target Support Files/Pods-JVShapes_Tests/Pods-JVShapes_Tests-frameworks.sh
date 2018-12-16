@@ -148,10 +148,28 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JVShapes/JVShapes.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVCALayerExtensions/JVCALayerExtensions.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVCAShapeLayerExtensions/JVCAShapeLayerExtensions.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVColorBlender/JVColorBlender.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVConstraintEdges/JVConstraintEdges.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVContentType/JVContentType.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVRandomNumberGenerator/JVRandomNumberGenerator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVRestartable/JVRestartable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVSizeable/JVSizeable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVTimeable/JVTimeable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVUIViewExtensions/JVUIViewExtensions.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/JVShapes/JVShapes.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVCALayerExtensions/JVCALayerExtensions.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVCAShapeLayerExtensions/JVCAShapeLayerExtensions.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVColorBlender/JVColorBlender.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVConstraintEdges/JVConstraintEdges.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVContentType/JVContentType.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVRandomNumberGenerator/JVRandomNumberGenerator.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVRestartable/JVRestartable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVSizeable/JVSizeable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVTimeable/JVTimeable.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/JVUIViewExtensions/JVUIViewExtensions.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
