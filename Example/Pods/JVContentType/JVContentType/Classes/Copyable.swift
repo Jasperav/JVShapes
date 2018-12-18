@@ -1,15 +1,16 @@
 /// Copys the content of the old contentTypeId into the new contentTypeId
+/// Use this in combination with ContentType if you need to use a class rather than a struct
 public protocol Copyable: class {
     
     /// Make this class func in an inherence tree
     /// When a class implements this method but also implements the content type protocol
     /// the contentTypeId shoud NOT be copied
-    init(old: Self, newContentTypeId: String?)
+    init(old: Self, contentTypeId: String?)
 }
 
 public extension Copyable {
-    func copy(newContentTypeId: String? = nil) -> Self {
-        return Self.init(old: self, newContentTypeId: newContentTypeId)
+    func copy(contentTypeId: String?) -> Self {
+        return Self.init(old: self, contentTypeId: contentTypeId)
     }
 }
 

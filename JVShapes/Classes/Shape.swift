@@ -51,12 +51,13 @@ open class Shape: UIView, Restartable {
     }
     
     public func changeColors() {
-        guard let colorChanger = colorChanger else { fatalError() }
-        colorChanger.nextColors()
-        let animationDuration = colorChanger.contentType.randomColorChangeDuration.random()
+        guard colorChanger != nil else { fatalError() }
         
-        shapeLayer.animateFillColor(color: colorChanger.fillColor.cgColor, duration: animationDuration)
-        shapeLayer.animateStrokeColor(color: colorChanger.borderColor.cgColor, duration: animationDuration)
+        colorChanger!.nextColors()
+        let animationDuration = colorChanger!.contentType.randomColorChangeDuration.random()
+        
+        shapeLayer.animateFillColor(color: colorChanger!.fillColor.cgColor, duration: animationDuration)
+        shapeLayer.animateStrokeColor(color: colorChanger!.borderColor.cgColor, duration: animationDuration)
     }
     
     public func pause() {

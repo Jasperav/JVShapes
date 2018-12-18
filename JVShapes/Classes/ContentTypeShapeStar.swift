@@ -1,6 +1,6 @@
 import JVContentType
 
-public final class ContentTypeShapeStar: ContentType, Copyable {
+public struct ContentTypeShapeStar: ContentType {
     
     private static let defaultIdentifier = "default"
     
@@ -18,12 +18,6 @@ public final class ContentTypeShapeStar: ContentType, Copyable {
         self.contentTypeId = contentTypeId
         self.points = points
         self.extrusion = extrusion
-    }
-    
-    public required init(old: ContentTypeShapeStar, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        points = old.points
-        extrusion = old.extrusion
     }
     
 }

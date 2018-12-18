@@ -1,4 +1,4 @@
-/// Only final classes can adopt this protocol
+/// Only final classes/structs can adopt this protocol
 public protocol ContentType: Hashable {
 
     /// All reusable content types should be in here with a non-nil id.
@@ -45,4 +45,21 @@ public extension ContentType {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.hashValue == rhs.hashValue
     }
+    
+    init(old: Self, newContentTypeId: String? = nil) {
+        self = old
+        contentTypeId = newContentTypeId
+        validateIsStruct(self)
+    }
+    
+    func copy(newContentTypeId: String? = nil) -> Self {
+        return Self.init(old: self, newContentTypeId: newContentTypeId)
+    }
+}
+
+func validateIsStruct(_ obj: Any) {
+    #if DEBUG
+    let mirror = Mirror(reflecting: obj)
+    guard mirror.displayStyle == .struct else { fatalError("Call the other copy.") }
+    #endif
 }

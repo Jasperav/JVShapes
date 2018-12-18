@@ -247,15 +247,17 @@ open class ShapeSpawnerView: UIView, Restartable {
     }
     
     private func animateChangingColors() {
-        guard let colorChanger = colorChanger, let timerChangingColors = timerChangingColors else { fatalError("shouldnt be nil...") }
-        colorChanger.nextColors()
-        timerChangingColors.startTimer(colorChanger.contentType.randomColorChangeRate.random())
+        guard colorChanger != nil, let timerChangingColors = timerChangingColors else { fatalError("shouldnt be nil...") }
+        
+        colorChanger!.nextColors()
+        
+        timerChangingColors.startTimer(colorChanger!.contentType.randomColorChangeRate.random())
         
         for subview in subviews as! [Shape] {
-            let animationDuration = colorChanger.contentType.randomColorChangeDuration.random()
-            let newBorderColor = colorChanger.borderColor.cgColor
+            let animationDuration = colorChanger!.contentType.randomColorChangeDuration.random()
+            let newBorderColor = colorChanger!.borderColor.cgColor
             subview.shapeLayer.animateStrokeColor(color: newBorderColor, duration: animationDuration)
-            subview.shapeLayer.animateFillColor(color: colorChanger.fillColor.cgColor, duration: animationDuration)
+            subview.shapeLayer.animateFillColor(color: colorChanger!.fillColor.cgColor, duration: animationDuration)
         }
     }
     

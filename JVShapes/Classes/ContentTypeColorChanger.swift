@@ -3,7 +3,7 @@ import JVColorBlender
 import JVRandomNumberGenerator
 
 /// Always create a copy of this class when you acutally use an instance of it
-public final class ContentTypeColorChanger: ContentType, Copyable {
+public struct ContentTypeColorChanger: ContentType {
     
     public static var allTypes = Set<ContentTypeColorChanger>()
     
@@ -16,7 +16,11 @@ public final class ContentTypeColorChanger: ContentType, Copyable {
     public var randomColorChangeRate: RandomNumberDouble!
     public var randomColorChangeDuration: RandomNumberDouble!
     
-    public init(contentTypeId: String, contentTypeColorBlenderGroupIdBorderColor: String, contentTypeColorBlenderGroupIdFillColor: String, randomColorChangeRate: RandomNumberDouble, randomColorChangeDuration: RandomNumberDouble) {
+    public init(contentTypeId: String,
+                contentTypeColorBlenderGroupIdBorderColor: String,
+                contentTypeColorBlenderGroupIdFillColor: String,
+                randomColorChangeRate: RandomNumberDouble,
+                randomColorChangeDuration: RandomNumberDouble) {
         self.contentTypeId = contentTypeId
         self.fillColors = ContentTypeColorBlender.getContentTypes(contentTypeGroupId: contentTypeColorBlenderGroupIdFillColor)
         self.borderColors = ContentTypeColorBlender.getContentTypes(contentTypeGroupId: contentTypeColorBlenderGroupIdBorderColor)
@@ -26,14 +30,6 @@ public final class ContentTypeColorChanger: ContentType, Copyable {
 
     public init(contentTypeId: String?) {
         self.contentTypeId = contentTypeId
-    }
-    
-    public required init(old: ContentTypeColorChanger, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        fillColors = old.fillColors
-        borderColors = old.borderColors
-        randomColorChangeRate = old.randomColorChangeRate
-        randomColorChangeDuration = old.randomColorChangeDuration
     }
 
 }

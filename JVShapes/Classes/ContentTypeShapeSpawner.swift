@@ -2,7 +2,7 @@ import JVContentType
 import JVColorBlender
 import JVRandomNumberGenerator
 
-public final class ContentTypeShapeSpawner: ContentType, Copyable {
+public struct ContentTypeShapeSpawner: ContentType {
 
     public static var allTypes = Set<ContentTypeShapeSpawner>()
     
@@ -43,22 +43,6 @@ public final class ContentTypeShapeSpawner: ContentType, Copyable {
         self.randomStartAlpha = randomStartAlpha
         self.percentSpawnDurationWhenAnimatingShapeAlphaToZero = percentSpawnDurationWhenAnimatingShapeAlphaToZero
         self.baseSpawnDurationOnShapeSize = baseSpawnDurationOnShapeSize
-    }
-    
-    public required init(old: ContentTypeShapeSpawner, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        
-        randomSpawnRate = old.randomSpawnRate
-        randomSpawnDuration = old.randomSpawnDuration
-        randomShapeRelativeSize = old.randomShapeRelativeSize
-        randomEndPoint = old.randomEndPoint
-        randomStartAlpha = old.randomStartAlpha
-        animationType = old.animationType
-        rotationSpeed = old.rotationSpeed
-        percentSpawnDurationWhenAnimatingShapeAlphaToZero = old.percentSpawnDurationWhenAnimatingShapeAlphaToZero
-        baseSpawnDurationOnShapeSize = old.baseSpawnDurationOnShapeSize
-        onTouchDownColorChange = old.onTouchDownColorChange
-        onTouchDownIncreaseSpeedBy = old.onTouchDownIncreaseSpeedBy
     }
     
 }

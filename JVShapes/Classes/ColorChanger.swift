@@ -1,4 +1,4 @@
-public class ColorChanger {
+public struct ColorChanger {
     public let contentType: ContentTypeColorChanger
     
     public private(set) var currentColorIndex = 0
@@ -14,7 +14,7 @@ public class ColorChanger {
         self.borderColor = contentType.borderColors[0].randomColor
     }
     
-    public func nextColors() {
+    public mutating func nextColors() {
         currentColorIndex += 1
         
         if currentColorIndex >= contentType.fillColors.count {

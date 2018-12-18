@@ -1,7 +1,7 @@
 import JVContentType
 import JVRandomNumberGenerator
 
-public final class ContentTypeColorBlender: ContentTypeGroup, Copyable {
+public struct ContentTypeColorBlender: ContentTypeGroup {
     
     public static var allTypes = Set<ContentTypeColorBlender>()
     
@@ -24,31 +24,32 @@ public final class ContentTypeColorBlender: ContentTypeGroup, Copyable {
         self.color2 = color2
     }
     
-    public convenience init(contentTypeId: String?, color1: UIColor, color2: UIColor) {
+    public init(contentTypeId: String?, color1: UIColor, color2: UIColor) {
         self.init(contentTypeId: contentTypeId, contentTypeGroupId: nil, color1: color1, color2: color2)
     }
     
-    public convenience init(color1: UIColor, color2: UIColor) {
+    public init(color1: UIColor, color2: UIColor) {
         self.init(contentTypeId: nil, contentTypeGroupId: nil, color1: color1, color2: color2)
         calculateAllColors()
-    }
-    
-    public required init(old: ContentTypeColorBlender, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        contentTypeGroupId = old.contentTypeGroupId
-        color1 = old.color1
-        color2 = old.color2
     }
     
     /// Loops through allTypes and calculates every color combination
     /// Could be very expensive, so call this function only 1 time (more isn't needed, else re-think your design)
     public static func calulateAllColors() {
+        var tempSet = Set<ContentTypeColorBlender>()
+        
         for contentType in ContentTypeColorBlender.allTypes {
-            contentType.calculateAllColors()
+            var _contentType = contentType
+            
+            _contentType.calculateAllColors()
+            
+            tempSet.insert(_contentType)
         }
+        
+        ContentTypeColorBlender.allTypes = tempSet
     }
     
-    private func calculateAllColors() {
+    private mutating func calculateAllColors() {
         assert(colors.count == 0)
         for percentage in 0...100 {
             colors.append(ColorBlender.blend(from: color1, to: color2, percent: CGFloat(percentage) / 100))

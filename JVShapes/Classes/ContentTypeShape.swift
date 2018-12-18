@@ -2,7 +2,7 @@ import JVContentType
 import JVColorBlender
 import JVRandomNumberGenerator
 
-public final class ContentTypeShape: ContentTypeGroup, Copyable {
+public struct ContentTypeShape: ContentTypeGroup {
     
     public static var allTypes = Set<ContentTypeShape>()
     
@@ -15,7 +15,13 @@ public final class ContentTypeShape: ContentTypeGroup, Copyable {
     public var contentTypeColorBlenderFillColor: ContentTypeColorBlender!
     public var contentTypeColorChanger: ContentTypeColorChanger?
     
-    public init(contentTypeId: String?, contentTypeGroupId: [String]?, spawnPropability: Double, shape: Shapes, borderWidth: CGFloat, contentTypeColorBlenderBorderColor: ContentTypeColorBlender, contentTypeColorBlenderFillColor: ContentTypeColorBlender) {
+    public init(contentTypeId: String?,
+                contentTypeGroupId: [String]?,
+                spawnPropability: Double,
+                shape: Shapes,
+                borderWidth: CGFloat,
+                contentTypeColorBlenderBorderColor: ContentTypeColorBlender,
+                contentTypeColorBlenderFillColor: ContentTypeColorBlender) {
         self.contentTypeId = contentTypeId
         self.contentTypeGroupId = contentTypeGroupId
         self.spawnPropability = spawnPropability
@@ -23,16 +29,6 @@ public final class ContentTypeShape: ContentTypeGroup, Copyable {
         self.borderWidth = borderWidth
         self.contentTypeColorBlenderBorderColor = contentTypeColorBlenderBorderColor
         self.contentTypeColorBlenderFillColor = contentTypeColorBlenderFillColor
-    }
-    
-    public required init(old: ContentTypeShape, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        contentTypeGroupId = old.contentTypeGroupId
-        spawnPropability = old.spawnPropability
-        shape = old.shape
-        borderWidth = old.borderWidth
-        contentTypeColorBlenderBorderColor = old.contentTypeColorBlenderBorderColor
-        contentTypeColorBlenderFillColor = old.contentTypeColorBlenderFillColor
     }
     
     public init(contentTypeId: String?) {

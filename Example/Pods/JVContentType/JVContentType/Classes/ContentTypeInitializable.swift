@@ -4,7 +4,7 @@ public protocol ContentTypeInitializable: ContentType {
 }
 
 public extension ContentTypeInitializable {
-    public init(contentTypeId: String?) {
+    init(contentTypeId: String?) {
         self.init()
         self.contentTypeId = contentTypeId
     }

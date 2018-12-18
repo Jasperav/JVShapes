@@ -4,11 +4,11 @@ public protocol ContentTypeGroupInitializable: ContentTypeGroup {
 }
 
 public extension ContentTypeGroupInitializable {
-    public init() {
+    init() {
         self.init()
     }
     
-    public init(contentTypeId: String?) {
+    init(contentTypeId: String?) {
         self.init()
         self.contentTypeId = contentTypeId
     }

@@ -1,6 +1,6 @@
 import JVContentType
 
-public final class ContentTypeConstraintEdges: ContentType, Copyable {
+public struct ContentTypeConstraintEdges: ContentType {
 
     public static var allTypes = Set<ContentTypeConstraintEdges>()
     
@@ -10,11 +10,6 @@ public final class ContentTypeConstraintEdges: ContentType, Copyable {
     public init(contentTypeId: String, constraintEdges: ConstraintEdges) {
         self.contentTypeId = contentTypeId
         self.constraintEdges = constraintEdges
-    }
-    
-    public required init(old: ContentTypeConstraintEdges, newContentTypeId: String?) {
-        contentTypeId = newContentTypeId
-        constraintEdges = old.constraintEdges
     }
     
 }
